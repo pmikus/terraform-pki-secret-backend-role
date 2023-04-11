@@ -1,7 +1,7 @@
 variable "vault_provider_address" {
   description = "Vault cluster address."
   type        = string
-  default     = "vault.service.consul:8200"
+  default     = "http://vault.service.consul:8200"
 }
 
 variable "vault_provider_skip_tls_verify" {
