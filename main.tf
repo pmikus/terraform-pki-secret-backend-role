@@ -14,6 +14,6 @@ resource "vault_pki_secret_backend_role" "role" {
   backend          = vault_mount.pki.path
   key_bits         = var.key_bits
   key_type         = var.key_type
-  name             = var.role
+  name             = var.name
   ttl              = var.ttl
 }
