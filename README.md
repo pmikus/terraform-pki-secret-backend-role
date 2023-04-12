@@ -20,8 +20,9 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [vault_mount.pki](https://registry.terraform.io/providers/hashicorp/vault/3.14.0/docs/resources/mount) | resource |
-| [vault_pki_secret_backend_role.role](https://registry.terraform.io/providers/hashicorp/vault/3.14.0/docs/resources/pki_secret_backend_role) | resource |
+| [vault_mount.this](https://registry.terraform.io/providers/hashicorp/vault/3.14.0/docs/resources/mount) | resource |
+| [vault_pki_secret_backend_role.this](https://registry.terraform.io/providers/hashicorp/vault/3.14.0/docs/resources/pki_secret_backend_role) | resource |
+| [vault_pki_secret_backend_root_cert.this](https://registry.terraform.io/providers/hashicorp/vault/3.14.0/docs/resources/pki_secret_backend_root_cert) | resource |
 
 ## Inputs
 
