@@ -1,32 +1,52 @@
 # vault_mount
 
-variable "default_lease_ttl_seconds" {
-  default     = 3600
-  description = "Default lease duration for tokens and secrets in seconds."
+#variable "mount_allowed_managed_keys" {
+#  description = "(Optional)" #List of managed key registry entry names that the mount in question is allowed to access
+#  type        = set(string)
+#}
+
+variable "mount_default_lease_ttl_seconds" {
+  description = "(Optional)" #Default lease duration for tokens and secrets in seconds
   type        = number
 }
 
-variable "description" {
-  default     = "PKI secret backend"
-  description = "Human-friendly description of the mount."
+variable "mount_description" {
+  description = "(Optional)" #Human-friendly description of the mount
   type        = string
 }
 
-variable "max_lease_ttl_seconds" {
-  default     = 86400
-  description = "Maximum possible lease duration for tokens and secrets in seconds."
+#variable "mount_external_entropy_access" {
+#  description = "(Optional)" #Enable the secrets engine to access Vault's external entropy source
+#  type        = bool
+#}
+
+#variable "mount_local" {
+#  description = "(Optional)" #Local mount flag that can be explicitly set to true to enforce local mount in HA environment
+#  type        = bool
+#}
+
+variable "mount_max_lease_ttl_seconds" {
+  description = "(Optional)" #Maximum possible lease duration for tokens and secrets in seconds
   type        = number
 }
 
-variable "path" {
-  default     = "pki"
-  description = "Where the secret backend will be mounted."
+#variable "mount_namespace" {
+#  description = "(Optional)" #Target namespace. (requires Enterprise)
+#  type        = string
+#}
+
+#variable "mount_options" {
+#  description = "(Optional)" #Specifies mount type specific options that are passed to the backend
+#  type        = map
+#}
+
+variable "mount_path" {
+  description = "(Required)" #Where the secret backend will be mounted
   type        = string
 }
 
-variable "type" {
-  default     = "pki"
-  description = "Type of the backend, such as 'pki'."
+variable "mount_type" {
+  description = "(Required)" #Type of the backend, such as 'aws'
   type        = string
 }
 
