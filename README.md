@@ -20,29 +20,31 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [vault_mount.this](https://registry.terraform.io/providers/hashicorp/vault/3.14.0/docs/resources/mount) | resource |
 | [vault_pki_secret_backend_role.this](https://registry.terraform.io/providers/hashicorp/vault/3.14.0/docs/resources/pki_secret_backend_role) | resource |
-| [vault_pki_secret_backend_root_cert.this](https://registry.terraform.io/providers/hashicorp/vault/3.14.0/docs/resources/pki_secret_backend_root_cert) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_allow_ip_sans"></a> [allow\_ip\_sans](#input\_allow\_ip\_sans) | Flag to allow IP SANs. | `bool` | `true` | no |
-| <a name="input_allow_localhost"></a> [allow\_localhost](#input\_allow\_localhost) | Flag to allow certificates for localhost. | `bool` | `true` | no |
-| <a name="input_allow_subdomains"></a> [allow\_subdomains](#input\_allow\_subdomains) | Flag to allow certificates matching subdomains. | `bool` | `true` | no |
-| <a name="input_allowed_domains"></a> [allowed\_domains](#input\_allowed\_domains) | List of allowed domains for certificates. | `list(string)` | <pre>[<br>  "service.consul"<br>]</pre> | no |
-| <a name="input_default_lease_ttl_seconds"></a> [default\_lease\_ttl\_seconds](#input\_default\_lease\_ttl\_seconds) | Default lease duration for tokens and secrets in seconds. | `number` | `3600` | no |
-| <a name="input_description"></a> [description](#input\_description) | Human-friendly description of the mount. | `string` | `"PKI secret backend"` | no |
-| <a name="input_key_bits"></a> [key\_bits](#input\_key\_bits) | The number of bits of generated keys. | `number` | `4096` | no |
-| <a name="input_key_type"></a> [key\_type](#input\_key\_type) | The generated key type, choices: rsa, ec, ed25519, any. | `string` | `"ed25519"` | no |
-| <a name="input_max_lease_ttl_seconds"></a> [max\_lease\_ttl\_seconds](#input\_max\_lease\_ttl\_seconds) | Maximum possible lease duration for tokens and secrets in seconds. | `number` | `86400` | no |
-| <a name="input_name"></a> [name](#input\_name) | The name to identify this role within the backend. Must be unique within the backend. | `string` | `"consul"` | no |
-| <a name="input_path"></a> [path](#input\_path) | Where the secret backend will be mounted. | `string` | `"pki"` | no |
-| <a name="input_ttl"></a> [ttl](#input\_ttl) | The TTL, in seconds, for any certificate issued against this role. | `number` | `3600` | no |
-| <a name="input_type"></a> [type](#input\_type) | Type of the backend, such as 'pki'. | `string` | `"pki"` | no |
+| <a name="input_pki_secret_backend_role_allow_ip_sans"></a> [pki\_secret\_backend\_role\_allow\_ip\_sans](#input\_pki\_secret\_backend\_role\_allow\_ip\_sans) | (Optional) Flag to allow IP SANs. | `bool` | n/a | yes |
+| <a name="input_pki_secret_backend_role_allow_localhost"></a> [pki\_secret\_backend\_role\_allow\_localhost](#input\_pki\_secret\_backend\_role\_allow\_localhost) | (Optional) Flag to allow certificates for localhost. | `bool` | n/a | yes |
+| <a name="input_pki_secret_backend_role_allow_subdomains"></a> [pki\_secret\_backend\_role\_allow\_subdomains](#input\_pki\_secret\_backend\_role\_allow\_subdomains) | (Optional) Flag to allow certificates matching subdomains. | `bool` | n/a | yes |
+| <a name="input_pki_secret_backend_role_allowed_domains"></a> [pki\_secret\_backend\_role\_allowed\_domains](#input\_pki\_secret\_backend\_role\_allowed\_domains) | (Optional) The domains of the role. | `list` | n/a | yes |
+| <a name="input_pki_secret_backend_role_backend"></a> [pki\_secret\_backend\_role\_backend](#input\_pki\_secret\_backend\_role\_backend) | (Required) The path of the PKI secret backend the resource belongs to. | `string` | n/a | yes |
+| <a name="input_pki_secret_backend_role_key_bits"></a> [pki\_secret\_backend\_role\_key\_bits](#input\_pki\_secret\_backend\_role\_key\_bits) | (Optional) The number of bits of generated keys. | `number` | n/a | yes |
+| <a name="input_pki_secret_backend_role_key_type"></a> [pki\_secret\_backend\_role\_key\_type](#input\_pki\_secret\_backend\_role\_key\_type) | (Optional) The generated key type. | `string` | n/a | yes |
+| <a name="input_pki_secret_backend_role_name"></a> [pki\_secret\_backend\_role\_name](#input\_pki\_secret\_backend\_role\_name) | (Required) Unique name for the role. | `string` | n/a | yes |
+| <a name="input_pki_secret_backend_role_ttl"></a> [pki\_secret\_backend\_role\_ttl](#input\_pki\_secret\_backend\_role\_ttl) | (Optional, integer) The TTL, in seconds, for any certificate issued against this role. | `number` | n/a | yes |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_pki_secret_backend_role_backend"></a> [pki\_secret\_backend\_role\_backend](#output\_pki\_secret\_backend\_role\_backend) | n/a |
+| <a name="output_pki_secret_backend_role_id"></a> [pki\_secret\_backend\_role\_id](#output\_pki\_secret\_backend\_role\_id) | n/a |
+| <a name="output_pki_secret_backend_role_key_usage"></a> [pki\_secret\_backend\_role\_key\_usage](#output\_pki\_secret\_backend\_role\_key\_usage) | n/a |
+| <a name="output_pki_secret_backend_role_max_ttl"></a> [pki\_secret\_backend\_role\_max\_ttl](#output\_pki\_secret\_backend\_role\_max\_ttl) | n/a |
+| <a name="output_pki_secret_backend_role_name"></a> [pki\_secret\_backend\_role\_name](#output\_pki\_secret\_backend\_role\_name) | n/a |
+| <a name="output_pki_secret_backend_role_not_before_duration"></a> [pki\_secret\_backend\_role\_not\_before\_duration](#output\_pki\_secret\_backend\_role\_not\_before\_duration) | n/a |
+| <a name="output_pki_secret_backend_role_ttl"></a> [pki\_secret\_backend\_role\_ttl](#output\_pki\_secret\_backend\_role\_ttl) | n/a |
 <!-- END_TF_DOCS -->

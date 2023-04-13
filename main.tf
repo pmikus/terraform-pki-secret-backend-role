@@ -1,44 +1,45 @@
-resource "vault_mount" "this" {
-  #allowed_managed_keys     = var.mount_allowed_managed_keys
-  default_lease_ttl_seconds = var.mount_default_lease_ttl_seconds
-  description               = var.mount_description
-  #external_entropy_access  = var.mount_external_entropy_access
-  #local                    = var.mount_local
-  max_lease_ttl_seconds = var.mount_max_lease_ttl_seconds
-  #namespace                = var.mount_namespace
-  #options                  = var.mount_options
-  path = var.mount_path
-  type = var.mount_type
-}
-
 resource "vault_pki_secret_backend_role" "this" {
-  depends_on = [
-    vault_mount.this
-  ]
-  allow_ip_sans    = var.allow_ip_sans
-  allowed_domains  = var.allowed_domains
-  allow_localhost  = var.allow_localhost
-  allow_subdomains = var.allow_subdomains
-  backend          = vault_mount.this.path
-  key_bits         = var.key_bits
-  key_type         = var.key_type
-  name             = var.name
-  ttl              = var.ttl
-}
-
-resource "vault_pki_secret_backend_root_cert" "this" {
-  depends_on = [
-    vault_mount.this
-  ]
-  backend              = vault_mount.this.path
-  type                 = "internal"
-  common_name          = "service.consul"
-  ttl                  = "315360000"
-  format               = "pem"
-  private_key_format   = "der"
-  key_bits             = var.key_bits
-  key_type             = var.key_type
-  exclude_cn_from_sans = true
-  ou                   = "Razer"
-  organization         = "Home"
+  #allow_any_name = var.pki_secret_backend_role_allow_any_name
+  #allow_bare_domains = var.pki_secret_backend_role_allow_bare_domains
+  #allow_glob_domains = var.pki_secret_backend_role_allow_glob_domains
+  allow_ip_sans = var.pki_secret_backend_role_allow_ip_sans
+  allow_localhost = var.pki_secret_backend_role_allow_localhost
+  allow_subdomains = var.pki_secret_backend_role_allow_subdomains
+  allowed_domains = var.pki_secret_backend_role_allowed_domains
+  #allowed_domains_template = var.pki_secret_backend_role_allowed_domains_template
+  #allowed_other_sans = var.pki_secret_backend_role_allowed_other_sans
+  #allowed_serial_numbers = var.pki_secret_backend_role_allowed_serial_numbers
+  #allowed_uri_sans = var.pki_secret_backend_role_allowed_uri_sans
+  backend = var.pki_secret_backend_role_backend
+  #basic_constraints_valid_for_non_ca = var.pki_secret_backend_role_basic_constraints_valid_for_non_ca
+  #client_flag = var.pki_secret_backend_role_client_flag
+  #code_signing_flag = var.pki_secret_backend_role_code_signing_flag
+  #country = var.pki_secret_backend_role_country
+  #email_protection_flag = var.pki_secret_backend_role_email_protection_flag
+  #enforce_hostnames = var.pki_secret_backend_role_enforce_hostnames
+  #ext_key_usage = var.pki_secret_backend_role_ext_key_usage
+  #generate_lease = var.pki_secret_backend_role_generate_lease
+  key_bits = var.pki_secret_backend_role_key_bits
+  key_type = var.pki_secret_backend_role_key_type
+  #locality = var.pki_secret_backend_role_locality
+  #max_ttl = var.pki_secret_backend_role_max_ttl
+  name = var.pki_secret_backend_role_name
+  #namespace = var.pki_secret_backend_role_namespace
+  #no_store = var.pki_secret_backend_role_no_store
+  #organization = var.pki_secret_backend_role_organization
+  #ou = var.pki_secret_backend_role_ou
+  #policy_identifier {
+    #cps = var.pki_secret_backend_role_policy_identifier_cps
+    #notice = var.pki_secret_backend_role_policy_identifier_notice
+    #oid = var.pki_secret_backend_role_policy_identifier_oid
+  #}
+  #policy_identifiers = var.pki_secret_backend_role_policy_identifiers
+  #postal_code = var.pki_secret_backend_role_postal_code
+  #province = var.pki_secret_backend_role_province
+  #require_cn = var.pki_secret_backend_role_require_cn
+  #server_flag = var.pki_secret_backend_role_server_flag
+  #street_address = var.pki_secret_backend_role_street_address
+  ttl = var.pki_secret_backend_role_ttl
+  #use_csr_common_name = var.pki_secret_backend_role_use_csr_common_name
+  #use_csr_sans = var.pki_secret_backend_role_use_csr_sans
 }
